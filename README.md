@@ -12,10 +12,11 @@ This skeleton app has been developed combining Flask and Tornado. Flask servers 
 ## Installation
 
 **Dependencies**
-
+```
 pip install flask
 pip install flask-restful
 pip install tornado
+```
 
 **Install Tornado-Flask Template**
 
@@ -46,6 +47,7 @@ npm run build-dev-noTest:watch
 ## Features
 
 **Serve main Geppetto webpage and Geppetto API**
+
 Flask is in charge of the web pages and templates handling. In order to provide a modularised interface this code has been implemented using [Blueprint](http://flask.pocoo.org/docs/0.12/blueprints/)
 
 Geppetto specific code should go inside pygeppetto_blueprint.py and extend the current pygeppetto_core. At the moment it just renders the template whenever there is a request to Geppetto.
@@ -57,6 +59,7 @@ app.register_blueprint(pygeppetto_core, url_prefix='/')
 ```
 
 **Implement Websocket communication**
+
 Websockets are implemented using the powerful Tornado infrastructure. Implementation can be found at pygeppetto_server.py as part of the WebSocket class.
 
 Two methods are implemented so far:
@@ -107,6 +110,7 @@ api.add_resource(People, '/api/people')
 Any request at this end point will be handled by the People class.
 
 **What is missing?**
+
 - Implement hot deploy for the python code. [This library](http://werkzeug.pocoo.org) offers a good set of WSGI utilities in python. In particular [this debugger](http://werkzeug.pocoo.org/docs/0.12/debug/) utility may be useful.
 
 - This skeleton app is not connected to any database but, as it is implemented on top of the Trnado server, it should be quite simple to integrate any SQL DB.
